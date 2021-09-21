@@ -20,7 +20,7 @@
             <!-- col users -->
             <div class="col_users">
                 <!-- row profile -->
-                <div class="row_me">
+                <div class="row_me no-shrink">
                     <div class="my_profile flex_align_center">
                         <img src="img/avatar_io.jpg" alt="my picture">
                         <span>Nome utente</span>
@@ -33,7 +33,7 @@
                 </div>
                 <!-- /row profile -->
                 <!-- row notifications -->
-                <div class="row_notifications flex_align_center">
+                <div class="row_notifications flex_align_center no-shrink">
                     <div class="not_off pointer">
                         <i class="fas fa-bell-slash"></i>
                     </div>
@@ -45,10 +45,10 @@
                 <!-- /row notifications -->
                 <!-- row search -->
                 <div class="row_search flex_align_center">
-                    <div class="lens pointer">
+                    <div class="lens">
                         <i class="fas fa-search"></i>
                     </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="userSearch">
                 </div>
                 <!-- /row search -->
                 <!-- users -->
@@ -61,7 +61,50 @@
             </div>
             <!-- /col users -->
             <!-- col chat -->
-            <div class="col_chat"></div>
+            <div class="col_chat">
+                <!-- row chat -->
+                <div class="row_chat_info no-shrink">
+                    <div class="user_info flex_align_center">
+                        <img src="img/avatar_1.jpg" alt="my picture">
+                        <div class="name_access">
+                            <div>Michele</div>
+                            <div>
+                                Ultimo accesso oggi alle
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="option_icons flex_align_center">
+                        <i class="fas fa-search pointer"></i>
+                        <i class="fas fa-paperclip pointer"></i>
+                        <i class="fas fa-ellipsis-v pointer"></i>
+                    </div>
+                </div>
+                <!-- /row chat -->
+                <!-- messages -->
+                <div class="messages_container">
+                    <div class="message sendt">
+                        <div class="text">Hai portato a spasso il cane?</div>
+                        <div class="delivery_date">10/01/2020 15:30:55</div>
+                    </div>
+                    <div class="message sendt">
+                        <div class="text">Ricordati di dargli da mangiare</div>
+                        <div class="delivery_date">10/01/2020 15:50:00</div>
+                    </div>
+                    <div class="message">
+                        <div class="text">Tutto fatto!</div>
+                        <div class="delivery_date">10/01/2020 16:15:22</div>
+                    </div>
+                </div>
+                <!-- /messages -->
+                <!-- row type -->
+                <div class="row_type flex_align_center no-shrink">
+                    <i class="far fa-smile pointer"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-microphone pointer"></i>
+                </div>
+                <!-- /row type -->
+            </div>
             <!-- /col chat -->
         </div>
 

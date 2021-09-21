@@ -83,6 +83,9 @@ const app = new Vue({
                 ],
             },
         ],
+        userSearch: '',
+    },
+    methods: {
         
     }
 })

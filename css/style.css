@@ -16,6 +16,9 @@
     display: flex;
     align-items: center;
 }
+.no-shrink {
+    flex-shrink: 0;
+}
 
 /* body*/
 body {
@@ -29,10 +32,11 @@ body {
 #root {
     background-color: gray;
     height: 100%;
-    width: 80%;
+    width: 85%;
     margin: auto;
     display: flex;
 }
+
 /* col users */
 .col_users {
     height: 100%;
@@ -42,17 +46,17 @@ body {
     flex-direction: column;
 }
 /* row profile */
-.row_me {
+.row_me, .row_chat_info {
     height: 70px;
     background-color: #eaeaea;
     border-right: 1px solid #d6d6d6;
     display: flex;
     justify-content: space-between;
 }
-.my_profile, .option_icons {
+.my_profile, .option_icons, .user_info {
     height: 100%;
 }
-.my_profile img {
+.my_profile img, .user_info img {
     height: 50px;
     border-radius: 50%;
     vertical-align: middle;
@@ -84,7 +88,7 @@ body {
     color: #8edafc;
     font-size: 18px;
 }
-.not_info .pointer {
+.not_info div:last-child {
     font-size: 14px;
     text-decoration: underline;
     color: #6395ab;
@@ -94,6 +98,9 @@ body {
     height: 50px;
     background-color: #fafafa;
     padding: 6px;
+}
+.row_search, .section_users {
+    border-right: 1px solid #dedcdb;
 }
 .lens, .row_search input {
     height: 100%;
@@ -110,10 +117,9 @@ body {
     width: 80%;
     padding-left: 10px;
 }
-.row_search input:focus-visible {
+.row_search input:focus-visible, .row_type input:focus-visible {
     outline: none;
 }
-
 /* users */
 .section_users {
     list-style: none;
@@ -140,4 +146,63 @@ body {
     height: 100%;
     width: 65%;
     background-image: url(../img/mine.jpg);
+    display: flex;
+    flex-direction: column;
+}
+/* row chat info */
+.user_info img {
+    padding: 0 15px 0 10px;
+}
+.name_access div:last-child {
+    font-size: 12px;
+    color: #8b9193;
+    padding-top: 2px;
+}
+/* messages */
+.messages_container {
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: 45px 100px 0;
+    display: flex;
+    flex-direction: column;
+}
+.message {
+    margin: 10px 0;
+    background-color: #fff;
+    width: 315px;
+    position: relative;
+    border-radius: 10px;
+}
+.text {
+    padding: 20px 15px 20px;
+    font-size: 15px;
+}
+.delivery_date {
+    font-size: 11px;
+    color: #b7babc;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+.message.sendt {
+    background-color: #d5f9ba;
+    margin-left: auto;
+}
+
+/* row type */
+.row_type {
+    height: 70px;
+    background-color: #f3eeea;
+    justify-content: space-evenly;
+}
+.row_type input {
+    width: 85%;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+    padding: 20px;
+}
+.row_type i {
+    color: #6b7376;
+    font-size: 22px;
 }
