@@ -45,12 +45,19 @@
                 <!-- /row notifications -->
                 <!-- row search -->
                 <div class="row_search flex_align_center">
-                    <div class="lens">
+                    <div class="lens pointer">
                         <i class="fas fa-search"></i>
                     </div>
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <!-- /row search -->
+                <!-- users -->
+                <ul class="section_users scroll">
+                    <li class="pointer" v-for="user in contacts" :key="user.avatar"> 
+                        <img :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.name">
+                        <span>{{user.name}}</span>
+                    </li>
+                </ul>
             </div>
             <!-- /col users -->
             <!-- col chat -->

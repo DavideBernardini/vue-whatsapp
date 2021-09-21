@@ -9,6 +9,9 @@
 .pointer {
     cursor: pointer;
 }
+.scroll {
+    overflow-y: scroll;
+}
 .flex_align_center {
     display: flex;
     align-items: center;
@@ -35,6 +38,8 @@ body {
     height: 100%;
     width: 35%;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 /* row profile */
 .row_me {
@@ -105,6 +110,31 @@ body {
     width: 80%;
     padding-left: 10px;
 }
+.row_search input:focus-visible {
+    outline: none;
+}
+
+/* users */
+.section_users {
+    list-style: none;
+    flex-grow: 1;
+}
+.section_users li {
+    padding: 8px 20px;
+    font-size: 18px;
+}
+.section_users li:hover {
+    background-color: #e9ebeb;
+}
+.section_users img {
+    height: 60px;
+    border-radius: 50%;
+}
+.section_users span {
+    vertical-align: top;
+    margin-left: 18px; 
+}
+
 /* colonna chat */
 .col_chat {
     height: 100%;
