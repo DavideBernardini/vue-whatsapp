@@ -7,9 +7,9 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(
-        to bottom, #009688, #009688 15%, #d8dbd5 15%);
-        padding: 20px;
+    background: linear-gradient(to bottom, #009688, #009688 15%, #d8dbd5 15%);
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 #root {
