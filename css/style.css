@@ -37,8 +37,8 @@ body {
     display: flex;
 }
 
-/* col users */
-.col_users {
+/* col contacts */
+.col_contacts {
     height: 100%;
     width: 35%;
     background-color: white;
@@ -53,10 +53,10 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.my_profile, .option_icons, .user_info {
+.my_profile, .option_icons, .contact_info {
     height: 100%;
 }
-.my_profile img, .user_info img {
+.my_profile img, .contact_info img {
     height: 50px;
     border-radius: 50%;
     vertical-align: middle;
@@ -99,7 +99,7 @@ body {
     background-color: #fafafa;
     padding: 6px;
 }
-.row_search, .section_users {
+.row_search, .section_contacts {
     border-right: 1px solid #dedcdb;
 }
 .lens, .row_search input {
@@ -120,23 +120,23 @@ body {
 .row_search input:focus-visible, .row_type input:focus-visible {
     outline: none;
 }
-/* users */
-.section_users {
+/* contacts */
+.section_contacts {
     list-style: none;
     flex-grow: 1;
 }
-.section_users li {
+.section_contacts li {
     padding: 8px 20px;
     font-size: 18px;
 }
-.section_users li:hover {
+.section_contacts li:hover {
     background-color: #e9ebeb;
 }
-.section_users img {
+.section_contacts img {
     height: 60px;
     border-radius: 50%;
 }
-.section_users span {
+.section_contacts span {
     vertical-align: top;
     margin-left: 18px; 
 }
@@ -150,7 +150,7 @@ body {
     flex-direction: column;
 }
 /* row chat info */
-.user_info img {
+.contact_info img {
     padding: 0 15px 0 10px;
 }
 .name_access div:last-child {
