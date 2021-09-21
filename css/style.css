@@ -5,16 +5,109 @@
     box-sizing: border-box;
 }
 
+/* common */
+.pointer {
+    cursor: pointer;
+}
+.flex_align_center {
+    display: flex;
+    align-items: center;
+}
+
+/* body*/
 body {
     height: 100vh;
-    background: linear-gradient(to bottom, #009688, #009688 15%, #d8dbd5 15%);
+    background: linear-gradient(to bottom,#009688 0 100px, #d8dbd5 100px 100%);
     padding: 20px;
     font-family: 'Lato', sans-serif;
 }
 
+/* app container */
 #root {
     background-color: gray;
     height: 100%;
     width: 80%;
     margin: auto;
+    display: flex;
+}
+/* col users */
+.col_users {
+    height: 100%;
+    width: 35%;
+    background-color: white;
+}
+/* row profile */
+.row_me {
+    height: 70px;
+    background-color: #eaeaea;
+    border-right: 1px solid #d6d6d6;
+    display: flex;
+    justify-content: space-between;
+}
+.my_profile, .option_icons {
+    height: 100%;
+}
+.my_profile img {
+    height: 50px;
+    border-radius: 50%;
+    vertical-align: middle;
+    padding: 0 5px 0 10px
+}
+.option_icons i {
+    color: #b1b1b1;
+    margin: 0 10px;
+    font-size: 18px;
+}
+.option_icons i:last-child {
+    margin-right: 25px;
+}
+/* row notifications */
+.row_notifications {
+    height: 80px;
+    background-color: #8edafc;
+}
+.not_off {
+    margin: 0 10px 0 20px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.not_off i {
+    color: #8edafc;
+    font-size: 18px;
+}
+.not_info .pointer {
+    font-size: 14px;
+    text-decoration: underline;
+    color: #6395ab;
+}
+/* row search */
+.row_search {
+    height: 50px;
+    background-color: #fafafa;
+    padding: 6px;
+}
+.lens, .row_search input {
+    height: 100%;
+    border: 1px solid #f5f5f5;
+    background-color: #fff;
+}
+.lens {
+    width: 20%;
+    line-height: 38px;
+    text-align: center;
+    color: #b1b1b1;
+}
+.row_search input {
+    width: 80%;
+    padding-left: 10px;
+}
+/* colonna chat */
+.col_chat {
+    height: 100%;
+    width: 65%;
+    background-image: url(../img/mine.jpg);
 }

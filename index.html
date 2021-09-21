@@ -17,9 +17,46 @@
     </head>
     <body>
         <div id="root">
-            
+            <!-- col users -->
+            <div class="col_users">
+                <!-- row profile -->
+                <div class="row_me">
+                    <div class="my_profile flex_align_center">
+                        <img src="img/avatar_io.jpg" alt="my picture">
+                        <span>Nome utente</span>
+                    </div>
+                    <div class="option_icons flex_align_center">
+                        <i class="fas fa-circle-notch pointer"></i>
+                        <i class="fas fa-comment-alt pointer"></i>
+                        <i class="fas fa-ellipsis-v pointer"></i>
+                    </div>
+                </div>
+                <!-- /row profile -->
+                <!-- row notifications -->
+                <div class="row_notifications flex_align_center">
+                    <div class="not_off pointer">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div class="not_info">
+                        <div>Ricevi notifiche di nuovi messaggi</div>
+                        <div class="pointer">Attiva notifiche desktop</div>
+                    </div>
+                </div>
+                <!-- /row notifications -->
+                <!-- row search -->
+                <div class="row_search flex_align_center">
+                    <div class="lens">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <!-- /row search -->
+            </div>
+            <!-- /col users -->
+            <!-- col chat -->
+            <div class="col_chat"></div>
+            <!-- /col chat -->
         </div>
-
 
         <!-- vue -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
