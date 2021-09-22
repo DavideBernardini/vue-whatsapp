@@ -48,12 +48,12 @@
                     <div class="lens">
                         <i class="fas fa-search"></i>
                     </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
                 </div>
                 <!-- /row search -->
                 <!-- contacts -->
                 <ul class="section_contacts scroll">
-                    <li class="pointer" v-for="(contact, index) in contacts" :key="index" :class="index == contactIndex ? 'active' : null" @click="selectChat(index)"> 
+                    <li class="pointer" v-for="(contact, index) in filteredContacts" :key="index" :class="index == contactIndex ? 'active' : null" @click="selectChat(index)">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         <span>{{contact.name}}</span>
                     </li>
@@ -69,7 +69,7 @@
                         <div class="name_access">
                             <div> {{contacts[contactIndex].name}} </div>
                             <div>
-                                Ultimo accesso oggi alle
+                                Ultimo accesso oggi alle {{lastAccess()}}
                             </div>
                         </div>
                         

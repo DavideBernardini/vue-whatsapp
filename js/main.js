@@ -87,7 +87,18 @@ const app = new Vue({
         typeMessage: '',
         time: new Date(),
         timeout1: null,
-        timeout2: null
+        timeout2: null,
+        search: '',
+        
+    },
+    computed: {
+        filteredContacts() {
+            return this.contacts.filter(c => {
+                if (c.name.toLowerCase().includes(this.search.toLowerCase())) {
+                    return c.name.toLowerCase().includes(this.search.toLowerCase());
+                } 
+            })
+        }
     },
     methods: {
         selectChat: function(i) {
@@ -125,6 +136,8 @@ const app = new Vue({
             }
             this.typeMessage = '';
         },
-        
+        lastAccess: function() {
+            return this.time.getHours() + ':' + this.time.getMinutes();
+        }
     }
 })
