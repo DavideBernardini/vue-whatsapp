@@ -93,7 +93,7 @@
                 <!-- row type -->
                 <div class="row_type flex_align_center no-shrink">
                     <i class="far fa-smile pointer"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="typeMessage" @keyup.enter="sendMessage()">
                     <i class="fas fa-microphone pointer"></i>
                 </div>
                 <!-- /row type -->

@@ -83,11 +83,23 @@ const app = new Vue({
                 ],
             },
         ],
-        contactIndex: 0
+        contactIndex: 0,
+        typeMessage: '',
+        time: new Date()
     },
     methods: {
         selectChat: function(i) {
             this.contactIndex =  i;
+        },
+        sendMessage: function() {
+            if (this.typeMessage != '') {
+                this.contacts[this.contactIndex].messages.push({
+                        date: this.time.getDate() + '/0' + (this.time.getMonth() + 1) + '/' + this.time.getFullYear() + ' ' + this.time.getHours() + ':' + this.time.getMinutes() + ':' + this.time.getSeconds(),
+                        message: this.typeMessage,
+                        status: 'sent'
+                    })
+            }
+            this.typeMessage = '';
         }
     }
 })
