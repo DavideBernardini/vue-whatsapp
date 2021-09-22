@@ -85,21 +85,46 @@ const app = new Vue({
         ],
         contactIndex: 0,
         typeMessage: '',
-        time: new Date()
+        time: new Date(),
+        timeout1: null,
+        timeout2: null
     },
     methods: {
         selectChat: function(i) {
             this.contactIndex =  i;
         },
         sendMessage: function() {
+            if (this.timeout1 != null || this.timeout2 != null) {
+                clearTimeout(this.timeout1);
+                clearTimeout(this.timeout2);
+            }
             if (this.typeMessage != '') {
                 this.contacts[this.contactIndex].messages.push({
                         date: this.time.getDate() + '/0' + (this.time.getMonth() + 1) + '/' + this.time.getFullYear() + ' ' + this.time.getHours() + ':' + this.time.getMinutes() + ':' + this.time.getSeconds(),
                         message: this.typeMessage,
                         status: 'sent'
-                    })
+                })
+                this.timeout1 = setTimeout(
+                    () => {
+                        let d = new Date();
+                        this.contacts[this.contactIndex].messages.push({
+                            date: d.getDate() + '/0' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
+                            message: 'Ora non posso rispondere',
+                            status: 'received'
+                        })
+                    }, 1000);
+                this.timeout2 = setTimeout(
+                    () => {
+                        let d = new Date();
+                        this.contacts[this.contactIndex].messages.push({
+                            date: d.getDate() + '/0' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
+                            message: 'Ci sentiamo dopo!',
+                            status: 'received'
+                        })
+                    }, 2000);
             }
             this.typeMessage = '';
-        }
+        },
+        
     }
 })
