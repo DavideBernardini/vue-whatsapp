@@ -83,7 +83,7 @@ const app = new Vue({
                 ],
             },
         ],
-        userSearch: '',
+        contactIndex: 0
     },
     methods: {
         

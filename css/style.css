@@ -23,8 +23,8 @@
 /* body*/
 body {
     height: 100vh;
-    background: linear-gradient(to bottom,#009688 0 100px, #d8dbd5 100px 100%);
-    padding: 20px;
+    background: linear-gradient(to bottom,#009688 0 6.25rem, #d8dbd5 6.25rem 100%);
+    padding: 1.25rem;
     font-family: 'Lato', sans-serif;
 }
 
@@ -47,9 +47,9 @@ body {
 }
 /* row profile */
 .row_me, .row_chat_info {
-    height: 70px;
+    height: 4.375rem;
     background-color: #eaeaea;
-    border-right: 1px solid #d6d6d6;
+    border-right: .0625rem solid #d6d6d6;
     display: flex;
     justify-content: space-between;
 }
@@ -57,65 +57,65 @@ body {
     height: 100%;
 }
 .my_profile img, .contact_info img {
-    height: 50px;
+    height: 3.125rem;
     border-radius: 50%;
     vertical-align: middle;
-    padding: 0 5px 0 10px
+    padding: 0 .3125rem 0 .625rem
 }
 .option_icons i {
     color: #b1b1b1;
-    margin: 0 10px;
-    font-size: 18px;
+    margin: 0 .625rem;
+    font-size: 1.125rem;
 }
 .option_icons i:last-child {
-    margin-right: 25px;
+    margin-right: 1.5625rem;
 }
 /* row notifications */
 .row_notifications {
-    height: 80px;
+    height: 5rem;
     background-color: #8edafc;
 }
 .not_off {
-    margin: 0 10px 0 20px;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
+    margin: 0 .625rem 0 1.25rem;
+    height: 3.125rem;
+    width: 3.125rem;
+    line-height: 3.125rem;
     text-align: center;
     border-radius: 50%;
     background-color: #fff;
 }
 .not_off i {
     color: #8edafc;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 .not_info div:last-child {
-    font-size: 14px;
+    font-size: .875rem;
     text-decoration: underline;
     color: #6395ab;
 }
 /* row search */
 .row_search {
-    height: 50px;
+    height: 3.125rem;
     background-color: #fafafa;
-    padding: 6px;
+    padding: .375rem;
 }
 .row_search, .section_contacts {
-    border-right: 1px solid #dedcdb;
+    border-right: .0625rem solid #dedcdb;
 }
 .lens, .row_search input {
     height: 100%;
-    border: 1px solid #f5f5f5;
+    border: .0625rem solid #f5f5f5;
     background-color: #fff;
 }
 .lens {
     width: 20%;
-    line-height: 38px;
+    line-height: 2.375rem;
     text-align: center;
     color: #b1b1b1;
 }
 .row_search input {
     width: 80%;
-    padding-left: 10px;
+    padding-left: .625rem;
 }
 .row_search input:focus-visible, .row_type input:focus-visible {
     outline: none;
@@ -126,19 +126,22 @@ body {
     flex-grow: 1;
 }
 .section_contacts li {
-    padding: 8px 20px;
-    font-size: 18px;
+    padding: .5rem 1.25rem;
+    font-size: 1.125rem;
 }
 .section_contacts li:hover {
+    background-color: #f4fafa;
+}
+.section_contacts li.active {
     background-color: #e9ebeb;
 }
 .section_contacts img {
-    height: 60px;
+    height: 3.75rem;
     border-radius: 50%;
 }
 .section_contacts span {
     vertical-align: top;
-    margin-left: 18px; 
+    margin-left: 1.125rem; 
 }
 
 /* colonna chat */
@@ -151,58 +154,61 @@ body {
 }
 /* row chat info */
 .contact_info img {
-    padding: 0 15px 0 10px;
+    padding: 0 .9375rem 0 .625rem;
 }
 .name_access div:last-child {
-    font-size: 12px;
+    font-size: .75rem;
     color: #8b9193;
-    padding-top: 2px;
+    padding-top: .125rem;
 }
 /* messages */
 .messages_container {
     flex-grow: 1;
     overflow-y: scroll;
-    padding: 45px 100px 0;
+    padding: 2.8125rem 6.25rem 0;
     display: flex;
     flex-direction: column;
 }
 .message {
-    margin: 10px 0;
-    background-color: #fff;
-    width: 315px;
+    width: 19.6875rem;
     position: relative;
-    border-radius: 10px;
+    border-radius: .625rem;
+    margin-bottom: .625rem;
 }
 .text {
-    padding: 20px 15px 20px;
-    font-size: 15px;
+    padding: 1.25rem .9375rem 1.25rem;
+    font-size: .9375rem;
 }
 .delivery_date {
-    font-size: 11px;
+    font-size: .6875rem;
     color: #b7babc;
     position: absolute;
-    bottom: 4px;
-    right: 4px;
+    bottom: .25rem;
+    right: .25rem;
 }
-.message.sendt {
+.message.received {
+    margin: .625rem 0;
+    background-color: #fff;
+}
+.message.sent {
     background-color: #d5f9ba;
     margin-left: auto;
 }
 
 /* row type */
 .row_type {
-    height: 70px;
+    height: 4.375rem;
     background-color: #f3eeea;
     justify-content: space-evenly;
 }
 .row_type input {
     width: 85%;
-    height: 50px;
+    height: 3.125rem;
     border: none;
-    border-radius: 6px;
-    padding: 20px;
+    border-radius: .375rem;
+    padding: 1.25rem;
 }
 .row_type i {
     color: #6b7376;
-    font-size: 22px;
+    font-size: 1.375rem;
 }

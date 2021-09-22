@@ -48,12 +48,12 @@
                     <div class="lens">
                         <i class="fas fa-search"></i>
                     </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactsearch">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <!-- /row search -->
                 <!-- contacts -->
                 <ul class="section_contacts scroll">
-                    <li class="pointer" v-for="contact in contacts" :key="contact.avatar"> 
+                    <li class="pointer" v-for="(contact, index) in contacts" :key="index" :class="index == 0 ? 'active' : null"> 
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         <span>{{contact.name}}</span>
                     </li>
@@ -83,18 +83,11 @@
                 <!-- /row chat -->
                 <!-- messages -->
                 <div class="messages_container">
-                    <div class="message sendt">
-                        <div class="text">Hai portato a spasso il cane?</div>
-                        <div class="delivery_date">10/01/2020 15:30:55</div>
+                    <div class="message" v-for="(m, index) in contacts[contactIndex].messages" :key="index" :class="m.status == 'received' ? 'received' : 'sent'">
+                        <div class="text">{{m.message}}</div>
+                        <div class="delivery_date">{{m.date}}</div>
                     </div>
-                    <div class="message sendt">
-                        <div class="text">Ricordati di dargli da mangiare</div>
-                        <div class="delivery_date">10/01/2020 15:50:00</div>
-                    </div>
-                    <div class="message">
-                        <div class="text">Tutto fatto!</div>
-                        <div class="delivery_date">10/01/2020 16:15:22</div>
-                    </div>
+                    
                 </div>
                 <!-- /messages -->
                 <!-- row type -->
