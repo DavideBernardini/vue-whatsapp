@@ -24,7 +24,7 @@
 body {
     height: 100vh;
     background: linear-gradient(to bottom,#009688 0 6.25rem, #d8dbd5 6.25rem 100%);
-    padding: 1.25rem;
+    padding: 1.5625rem;
     font-family: 'Lato', sans-serif;
 }
 

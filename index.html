@@ -53,7 +53,7 @@
                 <!-- /row search -->
                 <!-- contacts -->
                 <ul class="section_contacts scroll">
-                    <li class="pointer" v-for="(contact, index) in contacts" :key="index" :class="index == 0 ? 'active' : null"> 
+                    <li class="pointer" v-for="(contact, index) in contacts" :key="index" :class="index == contactIndex ? 'active' : null" @click="selectChat(index)"> 
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         <span>{{contact.name}}</span>
                     </li>
@@ -65,9 +65,9 @@
                 <!-- row chat -->
                 <div class="row_chat_info no-shrink">
                     <div class="contact_info flex_align_center">
-                        <img src="img/avatar_1.jpg" alt="my picture">
+                        <img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" :alt="contacts[contactIndex].name">
                         <div class="name_access">
-                            <div>Michele</div>
+                            <div> {{contacts[contactIndex].name}} </div>
                             <div>
                                 Ultimo accesso oggi alle
                             </div>
