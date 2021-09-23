@@ -89,14 +89,14 @@ const app = new Vue({
         timeout1: null,
         timeout2: null,
         search: '',
-        
+        dropdownShow: false,
     },
     computed: {
         filteredContacts() {
             return this.contacts.filter(c => {
                 if (c.name.toLowerCase().includes(this.search.toLowerCase())) {
                     return c.name.toLowerCase().includes(this.search.toLowerCase());
-                } 
+                }
             })
         }
     },
@@ -138,6 +138,9 @@ const app = new Vue({
         },
         lastAccess: function() {
             return this.time.getHours() + ':' + this.time.getMinutes();
+        },
+        activateDropdown: function() {
+            this.dropdownShow = !this.dropdownShow;
         }
     }
 })
