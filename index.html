@@ -54,8 +54,13 @@
                 <!-- /row search -->
                 <!-- contacts -->
                 <ul class="section_contacts scroll" v-if="filteredContacts.length > 0">
-                    <li class="pointer" v-for="(contact, index) in filteredContacts" :key="index" :class="index == contactIndex ? 'active' : null" @click="selectChat(index)">
-                        <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                    <li class="pointer" 
+                    v-for="(contact, i) in filteredContacts" 
+                    :key="i" 
+                    :class="contact.index == contactIndex ? 'active' : null" 
+                    @click="contactIndex =  contact.index">
+                        <img :src="'img/avatar' + contact.avatar + '.jpg'" 
+                        :alt="contact.name">
                         <span>{{contact.name}}</span>
                     </li>
                 </ul>
@@ -76,7 +81,6 @@
                                 Ultimo accesso oggi alle {{lastAccess()}}
                             </div>
                         </div>
-                        
                     </div>
                     <div class="option_icons flex_align_center">
                         <i class="fas fa-search pointer"></i>
@@ -88,12 +92,11 @@
                 <!-- messages -->
                 <div class="messages_container" v-chat-scroll="{smooth: true}">
                     <div class="message" 
-                    v-for="(m, index) in contacts[contactIndex].messages" 
-                    :key="index" 
-                    :class="[m.status == 'received' ? 'received' : 'sent', dropdownShow == true ? 'show' : '']" 
-                    @click="activateDropdown()" >
-                        <div class="text">{{m.message}}</div>
-                        <div class="delivery_date">{{m.date}}</div>
+                    v-for="(mes, i) in contacts[contactIndex].messages" 
+                    :key="i" 
+                    :class="mes.status == 'received' ? 'received' : 'sent'">
+                        <div class="text">{{mes.message}}</div>
+                        <div class="delivery_date">{{mes.date}}</div>
                         <div class="dropdown_options">
                             <div class="info pointer">
                                 Info messaggio

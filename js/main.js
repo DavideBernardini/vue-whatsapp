@@ -89,21 +89,22 @@ const app = new Vue({
         timeout1: null,
         timeout2: null,
         search: '',
-        dropdownShow: false,
+
     },
     computed: {
         filteredContacts() {
+            this.contacts.map((c, i) => {
+                c.index = i;
+            }
+            );
             return this.contacts.filter(c => {
                 if (c.name.toLowerCase().includes(this.search.toLowerCase())) {
                     return c.name.toLowerCase().includes(this.search.toLowerCase());
                 }
-            })
+            });
         }
     },
     methods: {
-        selectChat: function(i) {
-            this.contactIndex =  i;
-        },
         sendMessage: function() {
             if (this.timeout1 != null || this.timeout2 != null) {
                 clearTimeout(this.timeout1);
@@ -139,8 +140,8 @@ const app = new Vue({
         lastAccess: function() {
             return this.time.getHours() + ':' + this.time.getMinutes();
         },
-        activateDropdown: function() {
-            this.dropdownShow = !this.dropdownShow;
-        }
+        // updateContactIndex: function() {
+            
+        // }
     }
 })
