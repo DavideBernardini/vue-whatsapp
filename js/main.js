@@ -91,8 +91,7 @@ const app = new Vue({
         search: '',
         dropdown: {
             visible: false,
-            indexMsg: null,
-            deleteMsg: false
+            indexMsg: null
         },
         
     },
@@ -148,10 +147,8 @@ const app = new Vue({
             this.dropdown.indexMsg = i;
             this.dropdown.visible = !this.dropdown.visible;
         },
-        deleteMessage: function() {
-            if (this.dropdown.deleteMsg = true) {
-                
-            }
+        deleteMessage: function (i) {
+            this.contacts[this.contactIndex].messages.splice(i, 1);
         }
     }
 })

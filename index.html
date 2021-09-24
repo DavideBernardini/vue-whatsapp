@@ -58,7 +58,7 @@
                     v-for="(contact, i) in filteredContacts" 
                     :key="i" 
                     :class="contact.index == contactIndex ? 'active' : null" 
-                    @click="contactIndex = contact.index">
+                    @click="contactIndex = contact.index, dropdown.visible = false">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" 
                         :alt="contact.name">
                         <span>{{contact.name}}</span>
@@ -92,11 +92,11 @@
                 <!-- messages -->
                 <div class="messages_container" 
                 v-chat-scroll="{smooth: true}">
+                    
                     <div class="message" 
                     v-for="(msg, index) in contacts[contactIndex].messages" 
                     :key="index" 
-                    :class="[msg.status == 'received' ? 'received' : 'sent', 
-                    dropdown.deleteMsg == true ? 'delete_msg' : '']"
+                    :class="msg.status == 'received' ? 'received' : 'sent'"
                     @click="selectDropdown(index)">
                         <div class="text">{{msg.message}}</div>
                         <div class="delivery_date">{{msg.date}}</div>
@@ -105,7 +105,7 @@
                             <div class="info pointer">
                                 Info messaggio
                             </div>
-                            <div class="delete pointer" :click="dropdown.deleteMsg = true">
+                            <div class="delete pointer" @click="deleteMessage(index)">
                                 Cancella messaggio
                             </div>
                         </div>

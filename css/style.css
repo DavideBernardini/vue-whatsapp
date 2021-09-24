@@ -167,6 +167,7 @@ body {
     background-image: url(../img/mine.jpg);
     display: flex;
     flex-direction: column;
+    position: relative
 }
 /* row chat info */
 .contact_info img {
@@ -192,9 +193,6 @@ body {
     margin-bottom: .625rem;
     position: relative;
     word-break: break-all;
-}
-.delete_msg {
-    display: none;
 }
 .text {
     padding: 1.25rem .9375rem 1.25rem;
