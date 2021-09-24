@@ -191,6 +191,7 @@ body {
     border-radius: .625rem;
     margin-bottom: .625rem;
     position: relative;
+    word-break: break-all;
 }
 .text {
     padding: 1.25rem .9375rem 1.25rem;

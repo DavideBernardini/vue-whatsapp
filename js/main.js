@@ -89,7 +89,7 @@ const app = new Vue({
         timeout1: null,
         timeout2: null,
         search: '',
-
+        showDropdown: ''
     },
     computed: {
         filteredContacts() {
@@ -140,8 +140,12 @@ const app = new Vue({
         lastAccess: function() {
             return this.time.getHours() + ':' + this.time.getMinutes();
         },
-        // updateContactIndex: function() {
-            
-        // }
+        selectDropdown: function() {
+            if (this.showDropdown == '') {
+                this.showDropdown = 'show';
+            } else {
+                this.showDropdown = '';
+            }
+        }
     }
 })

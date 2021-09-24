@@ -94,7 +94,8 @@
                     <div class="message" 
                     v-for="(mes, i) in contacts[contactIndex].messages" 
                     :key="i" 
-                    :class="mes.status == 'received' ? 'received' : 'sent'">
+                    :class="[mes.status == 'received' ? 'received' : 'sent', showDropdown]"
+                    @click="selectDropdown()">
                         <div class="text">{{mes.message}}</div>
                         <div class="delivery_date">{{mes.date}}</div>
                         <div class="dropdown_options">
