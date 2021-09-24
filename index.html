@@ -94,11 +94,11 @@
                     <div class="message" 
                     v-for="(mes, i) in contacts[contactIndex].messages" 
                     :key="i" 
-                    :class="[mes.status == 'received' ? 'received' : 'sent', showDropdown]"
-                    @click="selectDropdown()">
+                    :class="mes.status == 'received' ? 'received' : 'sent'"
+                    @click="selectDropdown(i)">
                         <div class="text">{{mes.message}}</div>
                         <div class="delivery_date">{{mes.date}}</div>
-                        <div class="dropdown_options">
+                        <div class="dropdown_options" v-if="showDropdown.visile == true && showDropdown.indexMsg == i">
                             <div class="info pointer">
                                 Info messaggio
                             </div>
