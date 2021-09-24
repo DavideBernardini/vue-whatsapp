@@ -89,10 +89,12 @@ const app = new Vue({
         timeout1: null,
         timeout2: null,
         search: '',
-        showDropdown: {
+        dropdown: {
             visible: false,
-            indexMsg: null
-        }
+            indexMsg: null,
+            deleteMsg: false
+        },
+        
     },
     computed: {
         filteredContacts() {
@@ -143,8 +145,13 @@ const app = new Vue({
             return this.time.getHours() + ':' + this.time.getMinutes();
         },
         selectDropdown: function(i) {
-            this.showDropdown.indexMsg = i;
-            this.showDropdown.visible = true;
+            this.dropdown.indexMsg = i;
+            this.dropdown.visible = !this.dropdown.visible;
+        },
+        deleteMessage: function() {
+            if (this.dropdown.deleteMsg = true) {
+                
+            }
         }
     }
 })

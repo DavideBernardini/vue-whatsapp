@@ -90,19 +90,22 @@
                 </div>
                 <!-- /row chat -->
                 <!-- messages -->
-                <div class="messages_container" v-chat-scroll="{smooth: true}">
+                <div class="messages_container" 
+                v-chat-scroll="{smooth: true}">
                     <div class="message" 
                     v-for="(msg, index) in contacts[contactIndex].messages" 
                     :key="index" 
-                    :class="msg.status == 'received' ? 'received' : 'sent'"
+                    :class="[msg.status == 'received' ? 'received' : 'sent', 
+                    dropdown.deleteMsg == true ? 'delete_msg' : '']"
                     @click="selectDropdown(index)">
                         <div class="text">{{msg.message}}</div>
                         <div class="delivery_date">{{msg.date}}</div>
-                        <div class="dropdown_options" v-if="showDropdown.visile == true && showDropdown.indexMsg == index">
+                        <div class="dropdown_options" 
+                        v-show="dropdown.visible == true && dropdown.indexMsg == index">
                             <div class="info pointer">
                                 Info messaggio
                             </div>
-                            <div class="delete pointer">
+                            <div class="delete pointer" :click="dropdown.deleteMsg = true">
                                 Cancella messaggio
                             </div>
                         </div>

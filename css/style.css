@@ -193,6 +193,9 @@ body {
     position: relative;
     word-break: break-all;
 }
+.delete_msg {
+    display: none;
+}
 .text {
     padding: 1.25rem .9375rem 1.25rem;
     font-size: .9375rem;
