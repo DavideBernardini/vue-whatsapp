@@ -1,0 +1,116 @@
+/* lg */
+@media screen and (max-width: 1080px) {
+    main {
+        width: 90%;
+    }
+    .col_contacts {
+        width: 10%;
+    }
+    .col_chat {
+        width: 90%;
+    }
+    .row_me {
+        justify-content: center;
+    }
+    .my_profile img {
+        padding: 0;
+    }
+    .col_contacts .option_icons {
+        display: none;
+    }
+    .my_profile span {
+        display: none;
+    }
+    .row_notifications {
+        justify-content: center;
+    }
+    .not_off {
+        margin: 0;
+    }
+    .not_info {
+        display: none;
+    }
+    .lens {
+        display: none;
+    }
+    .row_search input {
+        width: 100%;
+    }
+    .section_contacts {
+        text-align: center;
+    }
+    .section_contacts span {
+        margin: 0;
+    }
+    .section_contacts li {
+        padding: .5rem 0;
+        border-bottom: 1px solid rgb(243, 243, 243);
+    }
+}
+
+/* md */
+@media screen and (max-width: 890px) {
+    .col_contacts {
+        width: 12%;
+    }
+    .col_chat {
+        width: 88%;
+    }
+    .messages_container {
+        padding: 2.8125rem 3.125rem 0;
+    }
+}
+
+/* sm */
+@media screen and (max-width: 680px) {
+    main {
+        width: 100%;
+    }
+    .col_chat {
+        width: 87%;
+    }
+    .col_contacts {
+        width: 13%;
+    }
+    .not_found {
+        display: none;
+    }
+    .fa-adjust {
+        top: .2rem;
+        right: .2rem;
+    }
+}
+
+/* xs */
+@media screen and (max-width: 680px) {
+    #root {
+        padding: 0;
+    }
+    .col_chat {
+        width: 86%;
+    }
+    .col_contacts {
+        width: 14%;
+    }
+    .not_found {
+        display: none;
+    }
+    .fa-adjust {
+        top: 95%;
+        right: 93%;
+        z-index: 100;
+    }
+}
+
+/* xxs */
+@media screen and (max-width: 520px) {
+    .col_chat {
+        width: 84%;
+    }
+    .col_contacts {
+        width: 16%;
+    }
+    .message {
+        width: 17.5rem;
+    }
+}
