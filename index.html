@@ -16,114 +16,124 @@
         <title>Vue Boolzapp</title>
     </head>
     <body>
-        <div id="root">
-            <!-- col contacts -->
-            <div class="col_contacts">
-                <!-- row profile -->
-                <div class="row_me no-shrink">
-                    <div class="my_profile flex_align_center">
-                        <img src="img/avatar_io.jpg" alt="my picture">
-                        <span>Nome utente</span>
-                    </div>
-                    <div class="option_icons flex_align_center">
-                        <i class="fas fa-circle-notch pointer"></i>
-                        <i class="fas fa-comment-alt pointer"></i>
-                        <i class="fas fa-ellipsis-v pointer"></i>
-                    </div>
-                </div>
-                <!-- /row profile -->
-                <!-- row notifications -->
-                <div class="row_notifications flex_align_center no-shrink">
-                    <div class="not_off pointer">
-                        <i class="fas fa-bell-slash"></i>
-                    </div>
-                    <div class="not_info">
-                        <div>Ricevi notifiche di nuovi messaggi</div>
-                        <div class="pointer">Attiva notifiche desktop</div>
-                    </div>
-                </div>
-                <!-- /row notifications -->
-                <!-- row search -->
-                <div class="row_search flex_align_center">
-                    <div class="lens">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
-                    <i class="fas fa-times pointer" :class="search != '' ? 'show' : null" @click="search = ''"></i>
-                </div>
-                <!-- /row search -->
-                <!-- contacts -->
-                <ul class="section_contacts scroll" v-if="filteredContacts.length > 0">
-                    <li class="pointer" 
-                    v-for="(contact, i) in filteredContacts" 
-                    :key="i" 
-                    :class="contact.index == contactIndex ? 'active' : null" 
-                    @click="contactIndex = contact.index, dropdown.visible = false">
-                        <img :src="'img/avatar' + contact.avatar + '.jpg'" 
-                        :alt="contact.name">
-                        <span>{{contact.name}}</span>
-                    </li>
-                </ul>
-                <div class="not_found" v-else>
-                    Nessun contatto o chat trovati
-                </div>
-            </div>
-            <!-- /col contacts -->
-            <!-- col chat -->
-            <div class="col_chat">
-                <!-- row chat -->
-                <div class="row_chat_info no-shrink">
-                    <div class="contact_info flex_align_center">
-                        <img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" :alt="contacts[contactIndex].name">
-                        <div class="name_access">
-                            <div> {{contacts[contactIndex].name}} </div>
-                            <div>
-                                Ultimo accesso oggi alle {{lastAccess()}}
-                            </div>
+        <div id="root" :class="darkMode">
+            <i class="fas fa-adjust pointer"
+            @click="toggleDarkMode()"
+            :class="darkMode"></i>
+            <main>
+                <!-- col contacts -->
+                <div class="col_contacts"
+                :class="darkMode">
+                    <!-- row profile -->
+                    <div class="row_me no-shrink">
+                        <div class="my_profile flex_align_center">
+                            <img src="img/avatar_io.jpg" alt="my picture">
+                            <span>Nome utente</span>
+                        </div>
+                        <div class="option_icons flex_align_center">
+                            <i class="fas fa-circle-notch pointer"></i>
+                            <i class="fas fa-comment-alt pointer"></i>
+                            <i class="fas fa-ellipsis-v pointer"></i>
                         </div>
                     </div>
-                    <div class="option_icons flex_align_center">
-                        <i class="fas fa-search pointer"></i>
-                        <i class="fas fa-paperclip pointer"></i>
-                        <i class="fas fa-ellipsis-v pointer"></i>
-                    </div>
-                </div>
-                <!-- /row chat -->
-                <!-- messages -->
-                <div class="messages_container" 
-                v-chat-scroll="{smooth: true}">
-                    
-                    <div class="message" 
-                    v-for="(msg, index) in contacts[contactIndex].messages" 
-                    :key="index" 
-                    :class="msg.status == 'received' ? 'received' : 'sent'"
-                    @click="selectDropdown(index)">
-                        <div class="text">{{msg.message}}</div>
-                        <div class="delivery_date">{{msg.date}}</div>
-                        <div class="dropdown_options" 
-                        v-show="dropdown.visible == true && dropdown.indexMsg == index">
-                            <div class="info pointer">
-                                Info messaggio
-                            </div>
-                            <div class="delete pointer" @click="deleteMessage(index)">
-                                Cancella messaggio
-                            </div>
+                    <!-- /row profile -->
+                    <!-- row notifications -->
+                    <div class="row_notifications flex_align_center no-shrink">
+                        <div class="not_off pointer">
+                            <i class="fas fa-bell-slash"
+                            ></i>
+                        </div>
+                        <div class="not_info">
+                            <div>Ricevi notifiche di nuovi messaggi</div>
+                            <div class="pointer">Attiva notifiche desktop</div>
                         </div>
                     </div>
-                    
+                    <!-- /row notifications -->
+                    <!-- row search -->
+                    <div class="row_search flex_align_center">
+                        <div class="lens">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" 
+                        v-model="search"
+                        >
+                        <i class="fas fa-times pointer" :class="search != '' ? 'show' : null" @click="search = ''"></i>
+                    </div>
+                    <!-- /row search -->
+                    <!-- contacts -->
+                    <ul class="section_contacts scroll" 
+                    v-if="filteredContacts.length > 0">
+                        <li class="pointer" 
+                        v-for="(contact, i) in filteredContacts" 
+                        :key="i" 
+                        :class="contact.index == contactIndex ? 'active' : null" 
+                        @click="contactIndex = contact.index, dropdown.visible = false">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" 
+                            :alt="contact.name">
+                            <span>{{contact.name}}</span>
+                        </li>
+                    </ul>
+                    <div class="not_found" v-else>
+                        Nessun contatto o chat trovati
+                    </div>
                 </div>
-                <!-- /messages -->
-                <!-- row type -->
-                <div class="row_type flex_align_center no-shrink">
-                    <i class="far fa-smile pointer"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="typeMessage" @keyup.enter="sendMessage()">
-                    <i class="fas fa-microphone pointer"></i>
+                <!-- /col contacts -->
+                <!-- col chat -->
+                <div class="col_chat"
+                :class="darkMode">
+                    <!-- row chat -->
+                    <div class="row_chat_info no-shrink">
+                        <div class="contact_info flex_align_center">
+                            <img :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" :alt="contacts[contactIndex].name">
+                            <div class="name_access">
+                                <div> {{contacts[contactIndex].name}} </div>
+                                <div>
+                                    Ultimo accesso oggi alle {{lastAccess()}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option_icons flex_align_center">
+                            <i class="fas fa-search pointer"></i>
+                            <i class="fas fa-paperclip pointer"></i>
+                            <i class="fas fa-ellipsis-v pointer"></i>
+                        </div>
+                    </div>
+                    <!-- /row chat -->
+                    <!-- messages -->
+                    <div class="messages_container" 
+                    v-chat-scroll="{smooth: true}">
+                        <div class="dropdown_not_visible"></div>
+                        <div class="message" 
+                        v-for="(msg, index) in contacts[contactIndex].messages" 
+                        :key="index" 
+                        :class="msg.status == 'received' ? 'received' : 'sent'"
+                        @click="selectDropdown(index)">
+                            <div class="text">{{msg.message}}</div>
+                            <div class="delivery_date">{{msg.date}}</div>
+                            <div class="dropdown_options" 
+                            v-show="dropdown.visible == true && dropdown.indexMsg == index">
+                                <div class="info pointer">
+                                    Info messaggio
+                                </div>
+                                <div class="delete pointer" @click="deleteMessage(index)">
+                                    Cancella messaggio
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- /messages -->
+                    <!-- row type -->
+                    <div class="row_type flex_align_center no-shrink">
+                        <i class="far fa-smile pointer"></i>
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="typeMessage" @keyup.enter="sendMessage()">
+                        <i class="fas fa-microphone pointer"></i>
+                    </div>
+                    <!-- /row type -->
                 </div>
-                <!-- /row type -->
-            </div>
-            <!-- /col chat -->
-        </div>
-
+                <!-- /col chat -->
+                </div>
+            </main>
         <!-- vue -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <!-- /vue -->

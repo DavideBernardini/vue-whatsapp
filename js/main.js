@@ -93,7 +93,8 @@ const app = new Vue({
             visible: false,
             indexMsg: null
         },
-        
+        darkMode: '',
+        darkModeOnOff: false
     },
     computed: {
         filteredContacts() {
@@ -149,6 +150,12 @@ const app = new Vue({
         },
         deleteMessage: function (i) {
             this.contacts[this.contactIndex].messages.splice(i, 1);
+        },
+        toggleDarkMode: function() {
+            this.darkModeOnOff = !this.darkModeOnOff;
+            if (this.darkModeOnOff == true) {
+                this.darkMode = 'dark';
+            }
         }
     }
 })

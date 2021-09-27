@@ -20,8 +20,8 @@
     flex-shrink: 0;
 }
 
-/* body*/
-body {
+/* root*/
+#root {
     height: 100vh;
     background: linear-gradient(to bottom,#009688 0 6.25rem, #d8dbd5 6.25rem 100%);
     padding: 1.5625rem;
@@ -29,8 +29,7 @@ body {
 }
 
 /* app container */
-#root {
-    background-color: gray;
+main {
     height: 100%;
     width: 85%;
     margin: auto;
@@ -52,6 +51,7 @@ body {
     border-right: .0625rem solid #d6d6d6;
     display: flex;
     justify-content: space-between;
+    z-index: 10;
 }
 .my_profile, .option_icons, .contact_info {
     height: 100%;
@@ -164,12 +164,13 @@ body {
 .col_chat {
     height: 100%;
     width: 65%;
-    background-image: url(../img/mine.jpg);
     display: flex;
     flex-direction: column;
-    position: relative
 }
 /* row chat info */
+.row_chat_info {
+    border: none;
+}
 .contact_info img {
     padding: 0 .9375rem 0 .625rem;
 }
@@ -185,6 +186,7 @@ body {
     padding: 2.8125rem 6.25rem 0;
     display: flex;
     flex-direction: column;
+    background-image: url(../img/mine.jpg);
 }
 .message {
     width: 19.6875rem;
@@ -237,6 +239,7 @@ body {
     height: 4.375rem;
     background-color: #f3eeea;
     justify-content: space-evenly;
+    z-index: 10;
 }
 .row_type input {
     width: 85%;
@@ -249,4 +252,99 @@ body {
 .row_type i {
     color: #6b7376;
     font-size: 1.375rem;
+}
+.fa-adjust {
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+    font-size: 1.5625rem;
+    color: #d8dbd5;
+}
+
+/* dark mode */
+#root.dark {
+    background: linear-gradient(to bottom,#022f2b 0 6.25rem, #40423f 6.25rem 100%);
+}
+/* col contacts */
+.col_contacts.dark {
+    background-color: #131c21;
+}
+.col_contacts.dark .row_me, .col_chat.dark .row_chat_info {
+    background-color: #2a2f32;
+    color: #fff;
+}
+.col_contacts.dark .row_search, .col_contacts.dark .section_contacts {
+    border-right: .0625rem solid #2d3d38;
+}
+.col_contacts.dark .row_me {
+    border-right: 1px solid #3a3f43;
+}
+.col_contacts.dark .row_notifications {
+    background-color: #395b6a;
+    color: #fff;
+}
+.col_contacts.dark .not_off i {
+    color: #395b6a;
+}
+.col_contacts.dark .row_search {
+    background-color: #131c21;
+    border-bottom: 2px solid #252e33;
+}
+.col_contacts.dark .lens, .col_contacts.dark .row_search input {
+    background-color: #323739;
+    border: none;
+}
+.col_contacts.dark .row_search input {
+    color: rgb(147, 147, 147);
+}
+.col_contacts.dark .lens {
+    border-right: 1px solid rgb(84, 84, 84);
+}
+.col_contacts.dark .section_contacts {
+    background-color: #131c21;
+    color: lightgray;
+}
+.col_contacts.dark .section_contacts li {
+    border-bottom: 2px solid #252e33;
+}
+.col_contacts.dark .section_contacts li:hover {
+    background-color: #252e33; 
+}
+.col_contacts.dark .section_contacts li.active {
+    background-color: #323739;
+    color: #fff;
+}
+/* col chat */
+.col_chat.dark {
+    background-color: #1e2428;
+}
+.col_chat.dark .messages_container {
+    background-image: url(../img/mine-dark.png);
+}
+.col_chat.dark .message.received {
+    background-color: #262d31;
+    color: rgb(194, 194, 194);
+}
+.col_chat.dark .message.sent {
+    background-color: #056162;
+    color: rgb(231, 231, 231);
+}
+.col_chat.dark .row_type {
+    background-color: #1e2428;
+}
+.col_chat.dark .row_type input {
+    background-color: #33383b;
+    color: rgb(201, 201, 201);
+}
+.col_chat.dark .row_type i {
+    color: #727679;
+}
+.col_chat.dark .dropdown_options {
+    background-color: #283034;
+}
+.col_chat.dark .dropdown_options div:hover {
+    background-color: #2e363b;
+}
+.fa-adjust.dark {
+    color: #727679;
 }
