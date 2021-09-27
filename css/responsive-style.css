@@ -114,3 +114,28 @@
         width: 17.5rem;
     }
 }
+
+/* xxxs */
+@media screen and (max-width: 420px) {
+    .col_chat {
+        width: 80%;
+    }
+    .col_contacts {
+        width: 20%;
+    }
+    .message {
+        width: 17.5rem;
+    }
+    .fa-adjust {
+        top: 95%;
+        right: 90%;
+        z-index: 100;
+    }
+    .messages_container {
+        padding: 1.8125rem 2.125rem 0;
+        overflow-x: hidden;
+    }
+    .message {
+        width: 15.5rem;
+    }
+}

@@ -155,6 +155,8 @@ const app = new Vue({
             this.darkModeOnOff = !this.darkModeOnOff;
             if (this.darkModeOnOff == true) {
                 this.darkMode = 'dark';
+            } else if (this.darkModeOnOff == false) {
+                this.darkMode = '';
             }
         }
     }
